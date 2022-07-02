@@ -10,7 +10,7 @@
     tools:context=".RegisterActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_register_activity"
+        android:id="@+id/toolbarRegisterActivity"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.sum.ecommerce.utils.BoldTextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -35,14 +35,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar_register_activity">
+        app:layout_constraintTop_toBottomOf="@id/toolbarRegisterActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_first_name"
+                android:id="@+id/tilFirstName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.sum.ecommerce.utils.EditText
-                    android:id="@+id/et_first_name"
+                    android:id="@+id/etFirstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -66,7 +66,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_last_name"
+                android:id="@+id/tilLastName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,10 +77,10 @@
                 android:textColorHint="@color/color_secondary_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_first_name">
+                app:layout_constraintTop_toBottomOf="@id/tilFirstName">
 
                 <com.sum.ecommerce.utils.EditText
-                    android:id="@+id/et_last_name"
+                    android:id="@+id/etLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -90,7 +90,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email"
+                android:id="@+id/tilEmail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,10 +101,10 @@
                 android:textColorHint="@color/color_secondary_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_last_name">
+                app:layout_constraintTop_toBottomOf="@id/tilLastName">
 
                 <com.sum.ecommerce.utils.EditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -114,7 +114,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_password"
+                android:id="@+id/tilPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,10 +125,10 @@
                 android:textColorHint="@color/color_secondary_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_email">
+                app:layout_constraintTop_toBottomOf="@id/tilEmail">
 
                 <com.sum.ecommerce.utils.EditText
-                    android:id="@+id/et_password"
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -138,7 +138,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_confirm_password"
+                android:id="@+id/tilConfirmPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -149,10 +149,10 @@
                 android:textColorHint="@color/color_secondary_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_password">
+                app:layout_constraintTop_toBottomOf="@id/tilPassword">
 
                 <com.sum.ecommerce.utils.EditText
-                    android:id="@+id/et_confirm_password"
+                    android:id="@+id/etConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -162,7 +162,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
-                android:id="@+id/ll_terms_and_condition"
+                android:id="@+id/llTermsAndCondition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
@@ -170,16 +170,16 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/til_confirm_password">
+                app:layout_constraintTop_toBottomOf="@id/tilConfirmPassword">
 
                 <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cb_terms_and_condition"
+                    android:id="@+id/cbTermsAndCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:checked="false" />
 
                 <com.sum.ecommerce.utils.NormalTextView
-                    android:id="@+id/tv_terms_condition"
+                    android:id="@+id/tvTermsCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/txt_terms_condition_marginStart"
@@ -189,7 +189,7 @@
             </LinearLayout>
 
             <com.sum.ecommerce.utils.Button
-                android:id="@+id/btn_register"
+                android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -206,7 +206,7 @@
                 android:textSize="@dimen/btn_textSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_terms_and_condition" />
+                app:layout_constraintTop_toBottomOf="@id/llTermsAndCondition" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -216,10 +216,10 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btn_register">
+                app:layout_constraintTop_toBottomOf="@id/btnRegister">
 
                 <com.sum.ecommerce.utils.NormalTextView
-                    android:id="@+id/tv_already_have_an_account"
+                    android:id="@+id/tvAlreadyHaveAnAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/clickable_text_view_padding"
@@ -228,7 +228,7 @@
                     android:textSize="@dimen/lbl_text_view_textSize" />
 
                 <com.sum.ecommerce.utils.BoldTextView
-                    android:id="@+id/tv_login"
+                    android:id="@+id/tvLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:foreground="?attr/selectableItemBackground"
