@@ -12,18 +12,22 @@
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.ECommerce"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.ECommerce" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.ECommerce" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
+            android:screenOrientation="fullSensor"
             android:theme="@style/Theme.ECommerce">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,6 +7,7 @@ import com.sum.ecommerce.databinding.ActivityForgotPasswordBinding
 
 class ForgotPasswordActivity : BaseActivity() {
     private lateinit var binding: ActivityForgotPasswordBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)

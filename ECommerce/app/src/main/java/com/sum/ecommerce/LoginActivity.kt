@@ -3,8 +3,12 @@ package com.sum.ecommerce
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
+import com.google.firebase.auth.FirebaseAuth
 import com.sum.ecommerce.databinding.ActivityLoginBinding
+import com.sum.ecommerce.firestore.FirestoreClass
+import com.sum.ecommerce.models.User
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
@@ -45,7 +49,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
                 R.id.btnLogin -> {
 
-                   validateLoginDetails()
+                   logInRegisteredUser()
                 }
 
                 R.id.tvRegister -> {
@@ -73,5 +77,49 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 true
             }
         }
+    }
+
+
+    private fun logInRegisteredUser() {
+
+        if (validateLoginDetails()) {
+
+            // Show the progress dialog.
+            showProgressDialog(resources.getString(R.string.please_wait))
+
+            // Get the text from editText and trim the space
+            val email = binding.etEmail.text.toString().trim { it <= ' ' }
+            val password = binding.etPassword.text.toString().trim { it <= ' ' }
+
+            // Log-In using FirebaseAuth
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+
+                    // Hide the progress dialog
+                    hideProgressDialog()
+
+                    if (task.isSuccessful) {
+                        FirestoreClass().getUserDetails(this@LoginActivity)
+
+                       // showErrorSnackBar("You are logged in successfully.", false)
+                    } else {
+                        showErrorSnackBar(task.exception!!.message.toString(), true)
+                    }
+                }
+        }
+    }
+    fun userLoggedInSuccess(user: User) {
+
+        // Hide the progress dialog.
+        hideProgressDialog()
+
+        // Print the user details in the log as of now.
+        Log.i("First Name: ", user.firstName)
+        Log.i("Last Name: ", user.lastName)
+        Log.i("Email: ", user.email)
+
+        // Redirect the user to Main Screen after log in.
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finish()
     }
 }
