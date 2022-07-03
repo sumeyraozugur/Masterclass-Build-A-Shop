@@ -10,24 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App.Starting">
         <activity
+            android:name=".UserProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.ECommerce"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECommerce" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.ECommerce" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.ECommerce" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.ECommerce">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
