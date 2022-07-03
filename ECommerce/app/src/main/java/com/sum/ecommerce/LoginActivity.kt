@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.sum.ecommerce.databinding.ActivityLoginBinding
 import com.sum.ecommerce.firestore.FirestoreClass
 import com.sum.ecommerce.models.User
+import com.sum.ecommerce.utils.Constants
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
@@ -118,8 +119,16 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         Log.i("Last Name: ", user.lastName)
         Log.i("Email: ", user.email)
 
-        // Redirect the user to Main Screen after log in.
-        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+
+        if (user.profileCompleted == 0) {
+            // If the user profile is incomplete then launch the UserProfileActivity.
+            val intent = Intent(this@LoginActivity, UserProfileActivity::class.java)
+            intent.putExtra(Constants.EXTRA_USER_DETAILS, user)
+            startActivity(intent)
+        } else {
+            // Redirect the user to Main Screen after log in.
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        }
         finish()
     }
 }

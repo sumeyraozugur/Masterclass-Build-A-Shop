@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sum.ecommerce">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +13,8 @@
         android:theme="@style/Theme.App.Starting">
         <activity
             android:name=".UserProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ECommerce"
             android:exported="false" />
         <activity
             android:name=".ForgotPasswordActivity"
