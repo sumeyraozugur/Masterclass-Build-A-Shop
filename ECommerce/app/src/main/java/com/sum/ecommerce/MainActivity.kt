@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // TODO Step 4: Get the stored username from the Android SharedPreferences.
+        // TODO : Get the stored username from the Android SharedPreferences.
         // START
         // Create an instance of Android SharedPreferences
         val sharedPreferences =
