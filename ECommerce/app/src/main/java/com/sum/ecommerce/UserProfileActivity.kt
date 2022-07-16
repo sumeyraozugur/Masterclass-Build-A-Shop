@@ -22,6 +22,7 @@ import java.io.IOException
 class UserProfileActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityUserProfileBinding
     private lateinit var mUserDetails: User
+    private var mSelectedImageFileUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,8 +76,14 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
                 }
 
                 R.id.btn_submit-> {
+                    showProgressDialog(resources.getString(R.string.please_wait))
 
-                    if (validateUserProfileDetails()) {
+                    FirestoreClass().uploadImageToCloudStorage(
+                        this@UserProfileActivity,
+                        mSelectedImageFileUri
+                    )
+
+                  /*  if (validateUserProfileDetails()) {
                         showErrorSnackBar("Your details are valid. You can update them.",false)
 
                         // TODO : Create a HashMap of user details to be updated in the database and add the values init.
@@ -116,6 +123,8 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
                         )
                         // END
                     }
+
+                   */
                 }
             }
         }else{
@@ -153,12 +162,12 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
                 if (data != null) {
                     try {
                         // The uri of selected image from phone storage.
-                        val selectedImageFileUri = data.data!!
+                        mSelectedImageFileUri =data.data!!
 
                        // binding.ivUserPhoto.setImageURI(Uri.parse(selectedImageFileUri.toString()))
 
                         GlideLoader(this@UserProfileActivity).loadUserPicture(
-                            selectedImageFileUri,
+                            mSelectedImageFileUri!! ,
                             binding.ivUserPhoto
                         )
                     } catch (e: IOException) {
@@ -213,5 +222,17 @@ class UserProfileActivity : BaseActivity(), View.OnClickListener {
         // Redirect to the Main Screen after profile completion.
         startActivity(Intent(this@UserProfileActivity, MainActivity::class.java))
         finish()
+    }
+
+    fun imageUploadSuccess(imageURL: String) {
+
+        // Hide the progress dialog
+        hideProgressDialog()
+
+        Toast.makeText(
+            this@UserProfileActivity,
+            "Your image is uploaded successfully. Image URL is $imageURL",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 }
