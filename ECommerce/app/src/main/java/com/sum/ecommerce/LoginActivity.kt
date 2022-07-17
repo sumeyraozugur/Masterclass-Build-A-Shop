@@ -22,8 +22,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         binding.tvRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
-           // Snackbar.make(it, "SUmeyra", 1000).show()  görünüm alır.
-
+            // Snackbar.make(it, "SUmeyra", 1000).show()  görünüm alır.
 
 
         }
@@ -39,6 +38,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
 
     }
+
     override fun onClick(view: View?) {
         if (view != null) {
             when (view.id) {
@@ -50,7 +50,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
                 R.id.btnLogin -> {
 
-                   logInRegisteredUser()
+                    logInRegisteredUser()
                 }
 
                 R.id.tvRegister -> {
@@ -102,13 +102,14 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                     if (task.isSuccessful) {
                         FirestoreClass().getUserDetails(this@LoginActivity)
 
-                       // showErrorSnackBar("You are logged in successfully.", false)
+                        // showErrorSnackBar("You are logged in successfully.", false)
                     } else {
                         showErrorSnackBar(task.exception!!.message.toString(), true)
                     }
                 }
         }
     }
+
     fun userLoggedInSuccess(user: User) {
 
         // Hide the progress dialog.
@@ -126,8 +127,10 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             intent.putExtra(Constants.EXTRA_USER_DETAILS, user)
             startActivity(intent)
         } else {
-            // Redirect the user to Main Screen after log in.
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+
+            /*startActivity(Intent(this@SplashActivity, MainActivity::class.java))*/
+
+            startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
         }
         finish()
     }
